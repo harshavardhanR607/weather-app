@@ -1,3 +1,2 @@
-python
 django
 requests
