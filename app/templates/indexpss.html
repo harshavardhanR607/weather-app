@@ -1,0 +1,78 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-[url('image/bg_image.jpg')] p-3 gap-5 bg-cover bg-no-repeat min-h-screen items-center flex flex-col ">
+    <div class="flex items-center justify-center gap-3">
+        <h1 class="text-white text-2xl font-bold">Weather App</h1>
+        <img src={%static  "image/116.png" %} alt="">
+    </div>
+    <form method='get' class="flex gap-3 justify-center">
+        <input name='city' type="text" class="rounded-full px-5 py-2">
+        <button type="submit"><ion-icon name="search" class="text-white text-2xl p-2 bg-white/20 rounded-full"></ion-icon></button>
+    </form>
+
+    <div class="bg-white/20 flex p-3 rounded-xl gap-5  ">
+
+        <div class="gap-5 flex flex-col mx-4">
+
+            <div class="flex flex-col gap-2">
+                <p class="text-white font-bold text-2xl">{{temperature}}&deg;C</p>
+                <p class="text-white font-semibold text-sm">Now</p>
+            </div>
+
+            <div class="text-white font-bold">{{city}}, {{country}}</div>
+        </div>
+
+        <img src={%static "image/113.png" %} class="h-24 w-28" alt="">
+    </div>
+<!-- new -->
+    <div class="flex flex-row gap-5 bg-[#3b8de5] backdrop-blur-2xl rounded-xl p-3">
+    <div class="flex flex-col gap-5" id="left">
+        <img src="{{icon}}" alt="">
+        <div class="text-white">
+            <p class="text-2xl font-bold">{{cloud}}</p>
+            <p>{{weather}}</p>
+        </div>            
+    </div>
+    <div class="bg-transparent flex flex-col gap-2">
+        <div class="flex flex-row p-2 bg-white/20 rounded-xl gap-3">
+            <ion-icon name="thermometer" class="text-white text-2xl mt-3 "></ion-icon> 
+            <div>
+                <p class="text-white font-bold text-2xl">{{temperature}}</p>
+                <p class="text-white font-semibold text-sm">Temperature</p>
+            </div>
+        </div>
+        <div class="flex flex-row p-2 bg-white/20 rounded-xl gap-3">
+            <ion-icon name="speedometer" class="text-white text-2xl mt-3 "></ion-icon> 
+            <div>
+                <p class="text-white font-bold text-2xl">{{speed}} m/s</p>
+                <p class="text-white font-semibold text-sm">Wind Speed</p>
+            </div>
+        </div>
+        <div class="flex flex-row p-2 bg-white/20 rounded-xl gap-3">
+            <ion-icon name="rainy" class="text-white text-2xl mt-3 "></ion-icon> 
+            <div>
+                <p class="text-white font-bold text-2xl">{{humidity}} %</p>
+                <p class="text-white font-semibold text-sm">Humidity</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+
+    
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</body>
+
+</html>
